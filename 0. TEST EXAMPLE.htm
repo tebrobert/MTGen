@@ -1,0 +1,71 @@
+<html>
+<head>
+<script language="javascript" type="text/javascript" src="scripts/md5.js"></script>
+<script language="javascript" type="text/javascript" src="scripts/tester.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>TEST EXAMPLE</title>
+<style>
+    table#de {border-collapse: collapse;}
+    td#de {font-size: 30; border: 1px solid black;}
+</style>
+</head>
+<body>
+    <script language="javascript" type="text/javascript">
+        var files =
+        [
+"notes/E4.wav",
+        ];
+        
+        var hashes =
+        [
+"3480dfe8ed2fa008d4ab8bba06336e39",
+        ];
+    </script>
+    
+    <table id="de">
+    </table>
+    </p>
+    
+    <table>
+    <tr>
+        <td> Number </td>
+        <td> Audio </td>
+        <td> Answer </td>
+        <td> Button </td>
+        <td> Verdict </td>
+    </tr>
+    <script language="javascript" type="text/javascript">
+        for (var i = 0; i < files.length; i++)
+        {
+            document.write('<tr>');
+            document.write('<form name="form' + i + '">');
+            document.write('<td> ' + (i + 1) + '</td>');
+            document.write('<td><audio controls loop src="src/' + files[i] + '"></audio></td>');
+            document.write('<td><input name="f" type="text" value="" oninput="cl(' + i + ')"></td>');
+            document.write('<input name="h" type="hidden" value="' + hashes[i] + '">');
+            document.write('<td><input type="button" value="check" onclick="ch(' + i + ')"></td>');
+            document.write('<td><input name="r" type="text" value="" readonly></td>');
+            document.write('</form>');
+            document.write('</tr>');
+        }
+        document.forms[0].f.value = "e4";
+    </script>
+    </table>
+    </p>
+
+    <form name="end">
+    <script language="javascript" type="text/javascript">
+    function win()
+    {
+        alert("SUCCESS!!!");
+        document.write('<body bgcolor="#000000">');
+        document.write('<font size="7" color="#FF0000">RIGHT!!!</font><br>');
+        document.write('<img src="src/pictures/you-rock.jpg">');
+        document.write('<audio autoplay src="src/sounds/WIN.mp3">');
+        document.write('</body');
+    }
+    </script>
+    </form>
+    
+</body>
+</html>

@@ -1,0 +1,103 @@
+<html>
+<head>
+<script language="javascript" type="text/javascript" src="../scripts/md5.js"></script>
+<script language="javascript" type="text/javascript" src="../scripts/tester.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title> Test maker </title>
+<style>
+textarea {resize: none;}
+</style>
+</head>
+<body>
+<script language="javascript" type="text/javascript">
+function DocumentWriteCreate()
+{
+    document.open ();
+    document.close ();
+    
+    document.write('<font size="6">Parameters</font><br>');
+    document.write('<table>');
+    document.write('<form name="q0">');
+    document.write('<tr>');
+    document.write('    <td>Test name:</td>');
+    document.write('    <td><input name="testname" type="text" size="10" value="" onfocusout="ChangeTN(testname.value)"></td>');
+    document.write('</tr>');
+    document.write('<tr>');
+    document.write('    <td>Audio: src/</td>');
+    document.write('    <td><input name="folder" type="text" size="10" value="" onfocusout="ChangeFN(folder.value)"></td>');
+    document.write('</tr>');
+    document.write('<tr>');
+    document.write('    <td>Questions:</td>');
+    document.write('    <td><input name="n" type="text" size="4" value="" onfocusout="ChangeQN(form.n.value)"></td>');
+    document.write('</tr>');
+    document.write('<tr>');
+    document.write('    <td>Intro table:</td>');
+    document.write('    <td><input name="it" type="text" size="4" value="" onfocusout="ChangeITN(form.it.value)"></td>');
+    document.write('</tr>');
+    document.write('</form>');
+    document.write('</table>');
+    document.write('</p>');
+
+    if (itN != 0)
+    {
+        document.write('<font size="6">Intro table</font><br>');
+        document.write('    <table>');
+    }
+    
+    for (var i = 0; i < itN; i++)
+    {
+        document.write('<tr>');
+        document.write('    <form name="form it' + i + '">');
+        document.write('    <td><input name="it' + i + 'l" type="text" value="" oninput="SaveTable()"></td>');
+        document.write('    <td><input name="it' + i + 'r" type="text" value="" oninput="SaveTable()"></td>');
+        document.write('    </form>');
+        document.write('</tr>');
+    }
+    
+    if (itN != 0)
+    {
+        document.write('    </table>');
+        document.write('</p>');
+    }
+    
+    if (qN != 0)
+    {
+        document.write('<font size="6">Questions</font><br>');
+        document.write('    <table>');
+        document.write('    <tr>');
+        document.write('        <td>Number</td>');
+        document.write('        <td>File</td>');
+        document.write('        <td>Listen</td>');
+        document.write('        <td>Answer</td>');
+        document.write('    </tr>');
+    }
+    
+    for (var i = 0; i < qN; i++)
+    {
+        document.write('<tr>');
+        document.write('    <form name="question' + i + '">');
+        document.write('    <td>' + (i + 1) + '</td>');
+        document.write('    <td><input name="f' + i + '" type="file" value="" onchange="RefreshAudio(' + i + ')"></td>');
+        document.write('    <td><audio name="a' + i + '" controls loop src="' + files[i] + '"></audio></td>');
+        document.write('    <td><input name="answer' + i + '" type="text" value="" size="60" oninput="SaveAnswers()"></td>');
+        document.write('    </form>');
+        document.write('</tr>');
+    }
+    
+    if (qN != 0)
+    {
+        document.write('    </table>');
+        document.write('</p>');
+    }
+
+    document.write('<font size="6">Generated test</font><br>');
+    document.write('<input type="button" value="Generate" onclick="Generate()"><br>');
+    document.write('<textarea name="textarea" cols="80" rows="20" wrap="off" readonly></textarea><br>');
+}
+</script>
+<script language="javascript" type="text/javascript">
+DocumentWriteCreate();
+ElemFill();
+</script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<html>
+<head>
+<script language="javascript" type="text/javascript" src="scripts/md5.js"></script>
+<script language="javascript" type="text/javascript" src="scripts/tester.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Chords</title>
+<style>
+    table#de {border-collapse: collapse;}
+    td#de {font-size: 30; border: 1px solid black;}
+</style>
+</head>
+<body>
+    <script language="javascript" type="text/javascript">
+        var files =
+        [
+"chords/001.wav",
+"chords/002.wav",
+"chords/003.wav",
+"chords/004.wav",
+"chords/005.wav",
+        ];
+        
+        var hashes =
+        [
+"73a735695cc896224c727717acb8212f",
+"b93807a04649c73a6903398305052176",
+"57da8901f9df3b5eb53e72c0fc8905c3",
+"ef7d9799767993dd2920b884ab7a7003",
+"43fecf8d86f31b72825feb93eb5dbf77",
+        ];
+    </script>
+    
+    <table id="de">
+        <tr>
+            <td id="de">TO DO</td>
+            <td id="de">Write chords</td>
+        </tr>
+        <tr>
+            <td id="de">ADDITIONAL INFO</td>
+            <td id="de">4th song has 7 chords</td>
+        </tr>
+        <tr>
+            <td id="de">HELP</td>
+            <td id="de"><a href="src/StandartGuitar.htm">Standart Tune</a></td>
+        </tr>
+    </table>
+    </p>
+    
+    <table>
+    <tr>
+        <td> Number </td>
+        <td> Audio </td>
+        <td> Answer </td>
+        <td> Button </td>
+        <td> Verdict </td>
+    </tr>
+    <script language="javascript" type="text/javascript">
+        for (var i = 0; i < files.length; i++)
+        {
+            document.write('<tr>');
+            document.write('<form name="form' + i + '">');
+            document.write('<td> ' + (i + 1) + '</td>');
+            document.write('<td><audio controls loop src="src/' + files[i] + '"></audio></td>');
+            document.write('<td><input name="f" type="text" value="" oninput="cl(' + i + ')"></td>');
+            document.write('<input name="h" type="hidden" value="' + hashes[i] + '">');
+            document.write('<td><input type="button" value="check" onclick="ch(' + i + ')"></td>');
+            document.write('<td><input name="r" type="text" value="" readonly></td>');
+            document.write('</form>');
+            document.write('</tr>');
+        }
+        document.forms[0].f.value = "Am F G E";
+    </script>
+    </table>
+    </p>
+
+    <form name="end">
+    <script language="javascript" type="text/javascript">
+    function win()
+    {
+        alert("SUCCESS!!!");
+        document.write('<body bgcolor="#000000">');
+        document.write('<font size="7" color="#FF0000">RIGHT!!!</font><br>');
+        document.write('<img src="src/pictures/you-rock.jpg">');
+        document.write('<audio autoplay src="src/sounds/WIN.mp3">');
+        document.write('</body');
+    }
+    </script>
+    </form>
+    
+</body>
+</html>

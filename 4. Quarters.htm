@@ -1,0 +1,105 @@
+<html>
+<head>
+<script language="javascript" type="text/javascript" src="scripts/md5.js"></script>
+<script language="javascript" type="text/javascript" src="scripts/tester.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Quarters</title>
+<style>
+    table#de {border-collapse: collapse;}
+    td#de {font-size: 30; border: 1px solid black;}
+</style>
+</head>
+<body>
+    <script language="javascript" type="text/javascript">
+        var files =
+        [
+"quarters/001.wav",
+"quarters/002.wav",
+"quarters/003.wav",
+"quarters/004.wav",
+"quarters/005.wav",
+"quarters/006.wav",
+"quarters/007.wav",
+"quarters/008.wav",
+"quarters/009.wav",
+"quarters/010.wav",
+        ];
+        
+        var hashes =
+        [
+"8f9539df26f959ac5fd34aebe5e7775d",
+"49b9139e795ddb3a67413d8c7241aab2",
+"9876a75c17be48c5763041068c4fecf1",
+"91fbdb595dc258ec4c39800f3326031f",
+"ac71c315d6608e4b69e058405c583410",
+"f560b73a5d2d3d41253ede52813698d3",
+"ed4b887e672d5cef85191126567a8f33",
+"33e60b771a9e630382e31eaeaef7ecd6",
+"e3e761100bdd1c8042e495a1b9c60f37",
+"0b69085ba705c4ec6cb12493cb20ab55",
+        ];
+    </script>
+    
+    <table id="de">
+        <tr>
+            <td id="de">INSTRUMENT</td>
+            <td id="de">Bass</td>
+        </tr>
+        <tr>
+            <td id="de">TUNE</td>
+            <td id="de"><a href="src/DropCSharpBass.htm">Drop C# Bass</a></td>
+        </tr>
+        <tr>
+            <td id="de">STRING</td>
+            <td id="de">2</td>
+        </tr>
+        <tr>
+            <td id="de">TO DO</td>
+            <td id="de">Write 8 frets in row</td>
+        </tr>
+    </table>
+    </p>
+    
+    <table>
+    <tr>
+        <td> Number </td>
+        <td> Audio </td>
+        <td> Answer </td>
+        <td> Button </td>
+        <td> Verdict </td>
+    </tr>
+    <script language="javascript" type="text/javascript">
+        for (var i = 0; i < files.length; i++)
+        {
+            document.write('<tr>');
+            document.write('<form name="form' + i + '">');
+            document.write('<td> ' + (i + 1) + '</td>');
+            document.write('<td><audio controls loop src="src/' + files[i] + '"></audio></td>');
+            document.write('<td><input name="f" type="text" value="" oninput="cl(' + i + ')"></td>');
+            document.write('<input name="h" type="hidden" value="' + hashes[i] + '">');
+            document.write('<td><input type="button" value="check" onclick="ch(' + i + ')"></td>');
+            document.write('<td><input name="r" type="text" value="" readonly></td>');
+            document.write('</form>');
+            document.write('</tr>');
+        }
+        document.forms[0].f.value = "55118833";
+    </script>
+    </table>
+    </p>
+
+    <form name="end">
+    <script language="javascript" type="text/javascript">
+    function win()
+    {
+        alert("SUCCESS!!!");
+        document.write('<body bgcolor="#000000">');
+        document.write('<font size="7" color="#FF0000">RIGHT!!!</font><br>');
+        document.write('<img src="src/pictures/you-rock.jpg">');
+        document.write('<audio autoplay src="src/sounds/WIN.mp3">');
+        document.write('</body');
+    }
+    </script>
+    </form>
+    
+</body>
+</html>
